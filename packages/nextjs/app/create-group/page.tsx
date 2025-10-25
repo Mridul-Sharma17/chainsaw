@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { ArrowLeftIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import { AddressInput } from "~~/components/scaffold-eth";
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
@@ -65,7 +65,7 @@ const CreateGroup: NextPage = () => {
     setIsCreating(true);
 
     try {
-      const tx = await writeYourContractAsync({
+      await writeYourContractAsync({
         functionName: "createGroup",
         args: [groupName, groupDescription, validMembers as `0x${string}`[]],
       });

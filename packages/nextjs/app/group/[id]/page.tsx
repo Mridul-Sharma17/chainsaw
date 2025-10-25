@@ -61,7 +61,7 @@ const GroupDetail: NextPage = () => {
   });
 
   // Listen to events for real-time updates
-  const { data: expenseEvents } = useScaffoldEventHistory({
+  useScaffoldEventHistory({
     contractName: "SplitChain",
     eventName: "ExpenseAdded",
     fromBlock: 0n,
@@ -219,12 +219,6 @@ ${expenses
     } finally {
       setIsSettling(false);
     }
-  };
-
-  const getBalanceColor = (balance: bigint) => {
-    if (balance > 0n) return "text-success"; // Owed money (green)
-    if (balance < 0n) return "text-error"; // Owes money (red)
-    return "text-base-content"; // Even
   };
 
   const getBalanceText = (balance: bigint) => {

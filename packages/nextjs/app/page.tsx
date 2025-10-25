@@ -6,7 +6,6 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { formatEther } from "viem";
 import { PlusCircleIcon, UsersIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
 const Home: NextPage = () => {
